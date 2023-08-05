@@ -4,5 +4,6 @@
             <h2>{{ post.author }}</h2>
             <p>{{ post.body }}</p>
         </div>
+        <a href="{% url 'post_delete'  post.pk %}" style="float: right">postni enasinikini ko'rsatish</a>
 {% endblock content %}
 
