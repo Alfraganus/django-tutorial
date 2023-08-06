@@ -6,12 +6,17 @@
 </head>
 <body>
 <header>
-  <a href="{% url 'home' %}">bosh sahifa</a>
+    <a href="{% url 'home' %}">bosh sahifa</a>
     <a href="{% url 'post_new' %}" style="float: right">yangi post qoshish</a>
 </header>
-
+{% if user.is_authenticated %}
+    <p>Xush kelibsiz, {{ user.username }}</p>
+    <p><a href="{% url 'logout' %}">Chiqib ketish</a></p>
+{% else %}
+    <a href="{% url 'login' %}"><p>saytga kirish</p></a>
+{% endif %}
 {% block content %}
-<h1>bosh sahifga haqida malumot</h1>
+    <h1>bosh sahifga haqida malumot</h1>
 {% endblock content %}
 </body>
 </html>
